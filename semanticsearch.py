@@ -67,4 +67,4 @@ def search(query: str) -> None:
     print("Latency (ms):", 1000 * (end - start))
     
 
-search("tell me about an animal")
+search("tell me about different countries")
