@@ -1,13 +1,15 @@
 # EvaDBVertexAIExt
 
-This is a project that is attempting to integrate Vertex AI text-embeddings into EvaDB.
-Specifically, we want to be able to implement a query to do a semantic search over the EvaDB dataset. 
+This is a project which creates an application that utilizes features within VertexAI to allow the user to query a dataset of Duke University e-Books and generate unique titles based on their prompt and the result of their query. 
 
-We want to be able to support this type of query:
+The first part of the application implements semantic search on a dataset of Duke University e-Books using text-embeddings. Semantic search involves using the significance of words, expressions, and their context to discover the most pertinent outcomes. It relies on vector embeddings to effectively align the user's query with the most closely related result.
+
+This is the type of query that is being evaluatated in this stage of the app:
 ```
-SELECT * from evadb
+SELECT * from title_set
 ORDER BY similarity_value(“sample text”, x) 
 LIMIT k
 ```
 
-where similarity_value is a function that takes in two strings and returns the semantic similarity between two strings. The purpose of this query would be to find the k most similar strings in the dataset to a given input string. 
+The second part of the application implements few-shot learning with large-language models to generate unique book titles based on the prompt the user has supplied as well as the examples they’ve queried from the e-Book dataset.
+
